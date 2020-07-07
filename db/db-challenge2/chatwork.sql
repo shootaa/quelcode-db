@@ -1,13 +1,14 @@
-CREATE TABLE `chats` (
+CREATE TABLE `users` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
-      `message` varchar(1000) NOT NULL,
-      `file_name` varchar(100),
-      `chatroom_id` int(11) NOT NULL REFERENCES chatrooms(id),
+      `name` varchar(100) NOT NULL,
+      `email` varchar(100) NOT NULL,
+      `password` varchar(100)  NOT NULL,
+      `profile` varchar(1000),
+      `cellphone_number` varchar(13),
+      `office_telephone_number` varchar(13),
       `is_deleted` tinyint(1) DEFAULT 0 NOT NULL,
       `created_at` datetime NOT NULL,
-      `created_by` int(11) NOT NULL REFERENCES users(id),
       `updated_at` datetime NOT NULL,
-      `updated_by` int (11) NOT NULL REFERENCES users(id),
 
       PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
@@ -27,24 +28,23 @@ CREATE TABLE `chatrooms` (
       PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-CREATE TABLE `users-chatrooms` (
+CREATE TABLE `users_chatrooms` (
       `user_id` int(11) NOT NULL REFERENCES users(id),
       `chatroom_id` int(11) NOT NULL REFERENCES chatrooms(id),
-      `join_at` datetime NOT NULL,
+      `joined_at` datetime NOT NULL,
       PRIMARY KEY (`user_id`,`chatroom_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-CREATE TABLE `users` (
+CREATE TABLE `chats` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
-      `name` varchar(100) NOT NULL,
-      `email` varchar(100) NOT NULL,
-      `password` varchar(100)  NOT NULL,
-      `profile` varchar(1000),
-      `cellphone_number` varchar(13),
-      `office_telephone_number` varchar(13),
+      `message` varchar(1000) NOT NULL,
+      `file_name` varchar(100),
+      `chatroom_id` int(11) NOT NULL REFERENCES chatrooms(id),
       `is_deleted` tinyint(1) DEFAULT 0 NOT NULL,
       `created_at` datetime NOT NULL,
+      `created_by` int(11) NOT NULL REFERENCES users(id),
       `updated_at` datetime NOT NULL,
+      `updated_by` int (11) NOT NULL REFERENCES users(id),
 
       PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
