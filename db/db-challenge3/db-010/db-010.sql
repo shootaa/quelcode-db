@@ -1,6 +1,6 @@
 SELECT
     u.name,
-     c2.最新の投稿日時,
+    c2.最新の投稿日時,
     cr.chatroom_name
 FROM
     chats c
@@ -10,6 +10,8 @@ FROM
             c.chatroom_id
         FROM
             chats c
+        WHERE
+            c.is_deleted = 0
         GROUP BY
             c.chatroom_id
     ) AS c2 ON c.created_at = c2.最新の投稿日時
@@ -18,6 +20,5 @@ FROM
     LEFT JOIN chatrooms cr ON c2.chatroom_id = cr.id
 WHERE
     u.is_deleted = 0
-    AND c.is_deleted = 0
 ORDER BY
     c2.chatroom_id ASC
