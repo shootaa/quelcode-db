@@ -12,4 +12,4 @@ SELECT
 FROM
     `users`
 ORDER BY
-    id ASC
+    id ASC;

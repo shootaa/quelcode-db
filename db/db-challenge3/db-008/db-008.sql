@@ -10,4 +10,4 @@ where
     u.is_deleted = 0
     and cr.is_deleted = 0
 ORDER BY
-    uc.joined_at ASC
+    uc.joined_at ASC;

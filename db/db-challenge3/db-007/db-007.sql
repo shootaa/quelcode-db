@@ -20,4 +20,4 @@ WHERE
     description LIKE '%ダイレクトチャット'
     AND is_deleted = 0
 ORDER BY
-    id ASC
+    id ASC;

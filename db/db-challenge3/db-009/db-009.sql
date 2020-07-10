@@ -11,4 +11,4 @@ WHERE
 GROUP BY
     cr.id
 ORDER BY
-    `投稿数` DESC
+    `投稿数` DESC;

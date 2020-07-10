@@ -21,4 +21,4 @@ FROM
 WHERE
     u.is_deleted = 0
 ORDER BY
-    c2.chatroom_id ASC
+    c2.chatroom_id ASC;
