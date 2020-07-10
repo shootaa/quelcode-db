@@ -1,7 +1,7 @@
 SELECT
     u.name,
-    cr.chatroom_name,
-    c2.最新の投稿日時
+     c2.最新の投稿日時,
+    cr.chatroom_name
 FROM
     chats c
     RIGHT JOIN (
@@ -18,6 +18,6 @@ FROM
     LEFT JOIN chatrooms cr ON c2.chatroom_id = cr.id
 WHERE
     u.is_deleted = 0
-    AND cr.is_deleted = 0
+    AND c.is_deleted = 0
 ORDER BY
     c2.chatroom_id ASC

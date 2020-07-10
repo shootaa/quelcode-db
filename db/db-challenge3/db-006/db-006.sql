@@ -11,8 +11,5 @@ SELECT
     updated_at
 FROM
     `users`
-WHERE
-    is_deleted = 0
-    OR is_deleted = 1
 ORDER BY
     id ASC
