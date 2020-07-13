@@ -11,4 +11,4 @@ where
     AND cast(created_at as TIME) BETWEEN '09:00:00'
     AND '11:30:00'
     and is_deleted = 0
-    commit;
+commit;
