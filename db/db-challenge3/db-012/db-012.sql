@@ -6,12 +6,12 @@ set
     updated_at = now(),
     updated_by = 1
 where
-    id in(
+    id not in(
         select
             DISTINCT chatroom_id
         from
             users_chatrooms
         where
-            user_id <> 1
+            user_id = 1
     ); 
     commit;
